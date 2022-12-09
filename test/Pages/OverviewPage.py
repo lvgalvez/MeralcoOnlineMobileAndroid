@@ -10,13 +10,14 @@ class Overview(object):
     Overview_Kebab_Settings = "//android.view.View[13]"
     Overview_Kebab_Logout = "//android.view.View[14]"
     Overview_Pay_Now = "//android.widget.TextView[4]"
-    Overview_Switch_Add_Service = "//android.view.View[1]/android.widget.TextView[4]"
+    Overview_Switch_Add_Service = "//*[@text = 'Switch or Add Service']"
     Overview_Bills_Payments = "//android.view.View/android.view.View[1]/android.view.View[3]/android.widget.TextView"
     Overview_Accounts = "//android.view.View/android.view.View[1]/android.view.View[2]"
     Overview_Consumption_Report = "//android.view.View[5]"
     Overview_Outage_Incidents = "//android.view.View[7]"
     Overview_Activity_Tracker = "//android.view.View[6]"
     Overview_Kebab_Overview = "//android.view.View[2]/android.view.View/android.view.View[1]"
+    Overview_Contact_Us = "//*[1][@text = 'Contact Us']"
 
 
     def click_kebab_menu(self, driver):
@@ -72,6 +73,11 @@ class Overview(object):
     def click_kebab_overview(self, driver):
         self.click_kebab_overview = driver.find_element(By.XPATH, Overview.Overview_Kebab_Overview)
         self.click_kebab_overview.click()
+        time.sleep(10)
+
+    def click_contact_us(self, driver):
+        self.click_contact_us = driver.find_element(By.XPATH, Overview.Overview_Contact_Us)
+        self.click_contact_us.click()
         time.sleep(10)
 
 

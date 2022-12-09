@@ -11,7 +11,7 @@ host = "http://localhost:4723/wd/hub"
 meralco_online = f"{root_dir}/Move-75.apk"
 
 # Screenshot location
-screenshot_folder = f"{root_dir.parent}/Screenshots/"
+screenshot_folder = f"{root_dir.parent}/Screenshots"
 
 # Desired Capabilities
 desired_cap = {

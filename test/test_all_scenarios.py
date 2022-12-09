@@ -2,7 +2,11 @@ from appium import webdriver
 from Utilities.ExcelReader import *
 from TestCases import *
 
+
 import pytest
+
+from test.Utilities.Release5.TestCases import *
+from test.Utilities.TestData.TestData import *
 
 td_credentials = "ts_id, username, password, new_password"
 td_opay = "ts_id, username, password, first_name, last_name, card_number, cvv, expiry, amount, passkey"
@@ -564,3 +568,15 @@ def test_service_enrolment_to_mo_account(
 #     create_folder(screenshot_folder, ts_id)
 #     reg_tc006(driver, ts_id, facebook_email, facebook_password)
 #     driver.quit()
+
+
+def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_1_CAN_with_Single_Service_Android():
+    module = "Concern"
+    ts_id = "ts024"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module + ts_id)
+    concern_precondition01(driver, ts_id, Concern['username_single_service'], Concern['password'])
+    concern_tc001(driver, ts_id)
+    concern_tc008(driver, ts_id, Concern['Description'])
+    concern_tc009(driver, ts_id)
+    driver.quit()
