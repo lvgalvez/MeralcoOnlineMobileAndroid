@@ -14,7 +14,7 @@ class Overview(object):
     Overview_Bills_Payments = "//android.view.View/android.view.View[1]/android.view.View[3]/android.widget.TextView"
     Overview_Accounts = "//android.view.View/android.view.View[1]/android.view.View[2]"
     Overview_Consumption_Report = "//android.view.View[5]"
-    Overview_Outage_Incidents = "//android.view.View[7]"
+    Overview_Outage_Incidents = "//android.widget.TextView[@text = 'Outages & Incidents']"
     Overview_Activity_Tracker = "//android.view.View[6]"
     Overview_Kebab_Overview = "//android.view.View[2]/android.view.View/android.view.View[1]"
     Overview_Contact_Us = "//*[1][@text = 'Contact Us']"

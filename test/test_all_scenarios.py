@@ -574,9 +574,54 @@ def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_1_CAN_with_
     module = "Concern"
     ts_id = "ts024"
     driver = webdriver.Remote(host, desired_cap)
-    create_folder(screenshot_folder, module + ts_id)
+    create_folder(screenshot_folder, module)
     concern_precondition01(driver, ts_id, Concern['username_single_service'], Concern['password'])
     concern_tc001(driver, ts_id)
-    concern_tc008(driver, ts_id, Concern['Description'])
+    concern_tc008a(driver, ts_id, Concern['Description'])
     concern_tc009(driver, ts_id)
+    driver.quit()
+
+
+def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_1_CAN_with_Multiple_Service_Android():
+    module = "Concern"
+    ts_id = "ts025"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    concern_precondition01(driver, ts_id, Concern['username_multiple_service'], Concern['password'])
+    concern_tc003(driver, ts_id)
+    concern_tc008b(driver, ts_id, Concern['Description'], Concern['can_single'], Concern['sin_multiple'])
+    concern_tc009(driver, ts_id)
+    driver.quit()
+
+
+def test_Validation_of_CAN_field_in_Connect_with_Us_page_Accoun_has_Multiple_CAN_with_Single_Service_Android():
+    module = "Concern"
+    ts_id = "ts026"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    concern_precondition01(driver, ts_id, Concern['username_multiple_can'], Concern['password'])
+    concern_tc003(driver, ts_id)
+    concern_tc008c(driver, ts_id, Concern['Description'], Concern['can_multiple'])
+    concern_tc009(driver, ts_id)
+    driver.quit()
+
+
+def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_Multiple_CAN_with_Multiple_Service_Android():
+    module = "Concern"
+    ts_id = "ts027"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    concern_precondition01(driver, ts_id, Concern['username_multiple_can_multiple_sin'], Concern['password'])
+    concern_tc001(driver, ts_id)
+    concern_tc008d(driver, ts_id, Concern['Description'], Concern['can_sin_multiple'], Concern['sin_can_multiple'])
+    concern_tc009(driver, ts_id)
+    driver.quit()
+
+
+def test_Create_Outage_Report_No_Power_My_house_building_only_Android():
+    module = "Release5"
+    ts_id = "ts114"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc102(driver, ts_id, Release5['username_report_outage'], Release5['password_report_outage'], Release5['landmark_report_outage'])
     driver.quit()
