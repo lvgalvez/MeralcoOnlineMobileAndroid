@@ -19,6 +19,7 @@ class Overview(object):
     Overview_Kebab_Overview = "//android.view.View[2]/android.view.View/android.view.View[1]"
     overview_hamburger_menu = "//android.webkit.WebView[@index='0']/android.view.View[@index='0']/android.view.View[@index='0']"
     Overview_Contact_Us = "//*[1][@text = 'Contact Us']"
+    overview_bills_and_payments = "//*[1][@text = 'Bills and Payments'"
 
 
     def click_kebab_menu(self, driver):
@@ -87,4 +88,8 @@ class Overview(object):
 
     def click_hamburger_menu(self,driver):
         driver.find_element(By.XPATH, self.overview_hamburger_menu).click()
+
+    def click_bills_and_payments(self, driver):
+        driver.find_element(By.XPATH, self.overview_bills_and_payments).click()
+        time.sleep(10)
 

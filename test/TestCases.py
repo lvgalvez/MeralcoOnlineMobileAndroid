@@ -16,6 +16,7 @@ from Pages.FacebookLoginPage import *
 from Pages.ProfilePage import *
 from Pages.SwitchServicesPage import Switch
 from Utilities.Config import *
+from Utilities.TestData.TestData import *
 
 multiple_account = "MV-TS001"
 
@@ -992,20 +993,24 @@ def reg_tc006(driver, ts_id, facebook_email, facebook_password):
     facebookLogin.click_send_continue(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC006 Step 3.png')
 
+module = 'RFC'
 
-def r7_tc051(driver, ts_id):
+def r7_login_utility(driver):
     home = Home()
-    print("START")
     login = Login()
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    overview = Overview()
+    print("START")
     home.click_home_login(driver)
     time.sleep(5)
     login.set_username(driver, 'atconcernmultiple@yopmail.com')
     login.set_password(driver, 'Meralco01')
     login.click_login(driver)
     time.sleep(10)
-    #allow API
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+    login.click_allow(driver)
+
+def r7_tc051(driver, ts_id):
+    r7_login_utility(driver)
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC051 Step 1.png')
 
 def r7_tc052(driver, ts_id):
     home = Home()
@@ -1013,17 +1018,12 @@ def r7_tc052(driver, ts_id):
     overview = Overview()
     bills = BillsPayments()
     print("START")
-    home.click_home_login(driver)
-    time.sleep(5)
-    login.set_username(driver, 'atconcernmultiple@yopmail.com')
-    login.set_password(driver, 'Meralco01')
-    login.click_login(driver)
-    time.sleep(10)
-    # add script for allow button
-    overview.click_hamburger_menu(driver)
+    r7_login_utility(driver)
+
+    overview.click_kebab_menu(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
     time.sleep(5)
-    #click paybills
+    overview.click_bills_payments(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
     bills.click_bill(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 3.png')
@@ -1033,16 +1033,11 @@ def r7_tc053(driver, ts_id):
     login = Login()
     overview = Overview()
     print("START")
-    home.click_home_login(driver)
-    time.sleep(5)
-    login.set_username(driver, 'atconcernmultiple@yopmail.com')
-    login.set_password(driver, 'Meralco01')
-    login.click_login(driver)
-    time.sleep(10)
-    # add script for allow button
-    overview.click_hamburger_menu(driver)
+    r7_login_utility(driver)
+
+    overview.click_kebab_menu(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
-    #click Contact Us
+    overview.click_contact_us(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
 
 
@@ -1069,19 +1064,102 @@ def r7_tc056(driver, ts_id):
     home.click_orange_tag(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
 
-def viewPayment(driver, ts_id):
-    home = Home()
-    login = Login()
+def r7_tc057(driver, ts_id):
+
     overview = Overview()
+    billsPayment = BillsPayments()
+    bayad = Bayad()
     print("START")
-    home.click_home_login(driver)
-    time.sleep(5)
-    login.set_username(driver, 'atconcernmultiple@yopmail.com')
-    login.set_password(driver, 'Meralco01')
-    login.click_login(driver)
-    time.sleep(10)
-    # add script for allow button
-    overview.click_hamburger_menu(driver)
+
+    r7_login_utility(driver)
+    overview.click_kebab_menu(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
-    # click Bills and payment
+
+    overview.click_bills_payments(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+    billsPayment.click_bill(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 3.png')
+
+    billsPayment.click_pay_now(driver)
+    billsPayment.click_ok_modal(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 4.png')
+
+    billsPayment.enter_amount(driver, 100)
+    billsPayment.click_next(driver)
+    billsPayment.click_ok_modal(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 5.png')
+
+    billsPayment.click_proceed(driver)
+    billsPayment.click_ok_modal(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 6.png')
+
+    bayad.click_proceed(driver)
+    bayad.click_card(driver)
+    bayad.set_card_number(driver, Release7['card_number'])
+    bayad.set_expiry(driver, Release7['expiry'])
+    bayad.set_cvv(driver, Release7['cvv'])
+    bayad.set_first_name(driver, Release7['first_name'])
+    bayad.set_last_name(driver, Release7['last_name'])
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 7.png')
+
+
+    bayad.click_pay(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 8.png')
+
+    bayad.click_back_merchant(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 9.png')
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 10.png')
+
+def r7_tc058(driver, ts_id):
+    overview = Overview()
+    billsPayment = BillsPayments()
+    bayad = Bayad()
+    print("START")
+
+    r7_login_utility(driver)
+    overview.click_kebab_menu(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+
+    overview.click_bills_payments(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+    billsPayment.click_bill(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 3.png')
+
+    billsPayment.click_pay_now(driver)
+    billsPayment.click_ok_modal(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 4.png')
+
+    billsPayment.enter_amount(driver, 100)
+    billsPayment.click_next(driver)
+    billsPayment.click_ok_modal(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 5.png')
+
+    billsPayment.click_proceed(driver)
+    billsPayment.click_ok_modal(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 6.png')
+
+    bayad.click_proceed(driver)
+    bayad.click_card(driver)
+    bayad.set_card_number(driver, Release7['card_number'])
+    bayad.set_expiry(driver, Release7['expiry'])
+    bayad.set_cvv(driver, Release7['cvv'])
+    bayad.set_first_name(driver, Release7['first_name'])
+    bayad.set_last_name(driver, Release7['last_name'])
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 7.png')
+
+    bayad.click_pay(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 8.png')
+
+    bayad.click_back_merchant(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 9.png')
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 10.png')
+
+    billsPayment.click_view_pdf(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 11.png')
+
+    billsPayment.click_ok_modal(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 12.png')

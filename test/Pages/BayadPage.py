@@ -21,7 +21,7 @@ class Bayad(object):
     Bayad_Back_Merchant = "//android.widget.Button"
     Bayad_Print = "//android.view.View[1]/android.widget.Button"
     Bayad_New_Transaction = "//android.view.View[3]/android.widget.Button"
-
+    Bayad_duplicate_proceed = "//android.widget.Button[@text='Proceed']"
 
     def click_total_amount(self, driver):
         self.click_total_amount = driver.find_element(By.XPATH, Bayad.Bayad_Total_Amount)
@@ -133,3 +133,6 @@ class Bayad(object):
     def swipe_left(self, driver):
         driver.swipe(start_x=75, start_y=1000, end_x=1075, end_y=1000, duration=200)
         time.sleep(5)
+
+    def click_proceed(self, driver):
+        driver.find_element(By.XPATH, self.Bayad_duplicate_proceed).click()
