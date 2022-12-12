@@ -8,7 +8,7 @@ sleep_time = 3
 
 class Outage_Incidents(object):
     Outage_View_Report = "//android.view.View[2]/android.view.View/android.view.View[1]"
-    Outage_Streetlight_Safety = "//android.view.View/android.view.View/android.view.View[2]"
+    Outage_Streetlight_Safety = "//android.view.View[@text = 'Report Streetlight and Safety Concerns']"
     Outage_Reports_Summary = "//android.view.View[3]"
     Outage_Navigate_Next = "//android.view.View[4]/android.widget.Button"
     Outage_Service_Id_No = "//android.widget.RadioGroup//android.widget.Button[1]"
@@ -16,8 +16,6 @@ class Outage_Incidents(object):
     Outage_Address_Radio = "//android.view.View[3]/android.widget.RadioButton"
     Outage_Report_Number = "//android.view.View[5]/android.widget.RadioButton"
     Outage_Back = "//android.webkit.WebView/android.view.View[1]/android.view.View[1]//android.widget.TextView[1]"
-    Outage_Unstable_Power = "//android.view.View[3]/android.view.View[1]/android.view.View/android.widget.TextView"
-    Outage_Safety_Concern = "//android.view.View[4]/android.view.View[1]/android.view.View/android.widget.TextView"
     Outage_Pole_Broken = "//android.widget.RadioGroup/android.widget.RadioGroup[1]/android.view.View[1]/android.view.View[1]/android.view.View/android.widget.TextView"
     Outage_Report_Next = "//android.webkit.WebView/android.view.View[1]/android.view.View[1]//android.widget.TextView[3]"
     Outage_Province = "//android.view.View[2]/android.view.View[1]/android.view.View"
@@ -34,12 +32,24 @@ class Outage_Incidents(object):
     Outage_Landmark = "//android.view.View[2]/android.widget.EditText"
     Outage_Details_Next = "//android.widget.TextView[3]"
     Outage_Email_Notification = "//android.view.View[2]/android.view.View[1]//android.widget.Image"
-    Outage_Submit = "//android.webkit.WebView/android.view.View[1]/android.view.View[1]//android.widget.TextView[3]"
     Outage_Close = "//android.view.View[1]/android.view.View[1]/android.view.View/android.widget.TextView[2]"
     Outage_Report = "//android.view.View[2]/android.view.View/android.view.View[1]"
     Outage_Report_Back = "//android.view.View/android.view.View[1]/android.view.View/android.widget.TextView[1]"
     Outage_Map = "//android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View/android.view.View[2]"
     Outage_Frame = "//android.widget.LinearLayout"
+    Outage_House_Building = "//android.widget.TextView[@text = 'No Power - My house/building only']"
+    Outage_Whole_Street = "//android.widget.TextView[@text = 'No Power - Whole street/block']"
+    Outage_Unstable_Power = "//android.widget.TextView[@text = 'Unstable Power']"
+    Outage_Streetlight_Concern = "//android.widget.TextView[@text = 'Streetlight Concern']"
+    Outage_Safety_Concern = "//android.widget.TextView[@text = 'Safety Concern']"
+    Outage_Choose_Photo = "//android.widget.TextView[@text = '+Choose Photo']"
+    Outage_Camera_Capture = "//android.widget.Image[@text = 'camera_final_state']"
+    Outage_Camera_Accept = "//android.view.View[2]/android.widget.Image"
+    Outage_Next = "//android.widget.TextView[@text = 'Next']"
+    Outage_Report_SIN = "//android.widget.TextView[@text = 'Service ID Number ']"
+    Outage_Report_Landmark = "//android.widget.TextView[@text = 'Landmarks/Directions']"
+    Outage_SMS = "//android.widget.TextView[@text = 'SMS']"
+    Outage_Submit = "//android.widget.TextView[@text = 'Submit']"
 
 
     def click_view_reports(self, driver):
@@ -204,6 +214,55 @@ class Outage_Incidents(object):
         width = ((size['width'])/2) + 355
         TouchAction(driver).tap(None, width, height, 1).perform()
 
+    def click_streetlight_concern(self, driver):
+        self.streetlight_concern = driver.find_element(By.XPATH, Outage_Incidents.Outage_Streetlight_Concern)
+        self.streetlight_concern.click()
+        time.sleep(8)
+
+    def click_whole_street(self, driver):
+        self.whole_street = driver.find_element(By.XPATH, Outage_Incidents.Outage_Whole_Street)
+        self.whole_street.click()
+        time.sleep(8)
+
+    def click_house_building(self, driver):
+        self.house_building = driver.find_element(By.XPATH, Outage_Incidents.Outage_House_Building)
+        self.house_building.click()
+        time.sleep(8)
+
+    def click_choose_photo(self, driver):
+        self.choose_photo = driver.find_element(By.XPATH, Outage_Incidents.Outage_Choose_Photo)
+        self.choose_photo.click()
+        time.sleep(5)
+
+    def click_camera_capture(self, driver):
+        self.camera_capture = driver.find_element(By.XPATH, Outage_Incidents.Outage_Camera_Capture)
+        self.camera_capture.click()
+        time.sleep(5)
+
+    def click_camera_accept(self, driver):
+        self.camera_accept = driver.find_element(By.XPATH, Outage_Incidents.Outage_Camera_Accept)
+        self.camera_accept.click()
+        time.sleep(5)
+
+    def click_outage_next(self, driver):
+        self.outage_next = driver.find_element(By.XPATH, Outage_Incidents.Outage_Next)
+        self.outage_next.click()
+        time.sleep(5)
+
+    def click_report_sin(self, driver):
+        self.report_sin = driver.find_element(By.XPATH, Outage_Incidents.Outage_Report_SIN)
+        self.report_sin.click()
+        time.sleep(5)
+
+    def click_report_landmark(self, driver):
+        self.report_landmark = driver.find_element(By.XPATH, Outage_Incidents.Outage_Report_Landmark)
+        self.report_landmark.click()
+        time.sleep(5)
+
+    def click_outage_sms(self, driver):
+        self.outage_sms = driver.find_element(By.XPATH, Outage_Incidents.Outage_SMS)
+        self.outage_sms.click()
+        time.sleep(5)
 
     def swipe_down(self, driver):
         driver.swipe(start_x=75, start_y=2100, end_x=75, end_y=1100, duration=200)

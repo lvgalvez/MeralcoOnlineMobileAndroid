@@ -9,6 +9,7 @@ class Activity_Tracker(object):
     Tracker_Selected_Activity = "//android.view.View[2]/android.view.View/android.view.View[1]"
     Tracker_Resolved = "//android.view.View[1]/android.view.View/android.view.View[3]"
     Tracker_Close = "//android.view.View[1]/android.widget.TextView[3]"
+    Recent_Activity = "//android.view.View[2]/android.view.View[2]/android.view.View[1]/android.widget.TextView[1]"
 
     def click_selected_Activity(self, driver):
         self.click_selected_Activity = driver.find_element(By.XPATH, Activity_Tracker.Tracker_Selected_Activity)
@@ -24,6 +25,12 @@ class Activity_Tracker(object):
         self.click_resolved = driver.find_element(By.XPATH, Activity_Tracker.Tracker_Resolved)
         self.click_resolved.click()
         time.sleep(8)
+
+    def click_recent_activity(self, driver):
+        self.recent_activity = driver.find_element(By.XPATH, Activity_Tracker.Recent_Activity)
+        self.recent_activity.click()
+        time.sleep(8)
+
 
     def swipe_up(self, driver):
         driver.swipe(start_x=75, start_y=600, end_x=75, end_y=0, duration=800)
