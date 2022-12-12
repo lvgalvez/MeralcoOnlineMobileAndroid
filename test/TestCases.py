@@ -643,6 +643,8 @@ def opb_tc001(driver, ts_id, username, password, sin, kwh):
     login.set_password(driver, password)
     login.click_login(driver)
     login.click_allow(driver)
+
+
     overview = Overview()
     overview.click_kebab_menu(driver)
     overview.click_switch_services(driver)
@@ -956,7 +958,7 @@ def reg_tc004(driver, ts_id, email, first_name, middle_name, last_name, mobile_n
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC004 Step 3.png')
     registration.click_register(driver, 5)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC004 Step 4.png')
-    takeScreenshot(f'/sdcard/uiautomator-screenshots/{ts_id}_TC005 Step 1.png')
+    #takeScreenshot(f'/sdcard/uiautomator-screenshots/{ts_id}_TC005 Step 1.png')
 
 def reg_tc005(driver, ts_id, google_email, google_password):
     # Registration_Google
@@ -990,3 +992,155 @@ def reg_tc006(driver, ts_id, facebook_email, facebook_password):
     facebookLogin.click_email_continue(driver)
     facebookLogin.click_send_continue(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC006 Step 3.png')
+
+def r7_tc051(driver, ts_id):
+    home = Home()
+    print("START")
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    home.click_home_login(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+def r7_tc053(driver, ts_id):
+    home = Home()
+    login = Login()
+    print("START")
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    home.click_home_login(driver)
+    time.sleep(5)
+    login.set_username(driver, 'atconcernmultiple@yopmail.com')
+    login.set_password(driver, 'Meralco01')
+    login.click_login(driver)
+    # add script for allow button
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+def r7_tc054(driver, ts_id):
+    home = Home()
+    print("START")
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    home.click_app_cal(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+def r7_tc056git(driver, ts_id):
+    home = Home()
+    print("START")
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    home.click_orange_tag(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+
+def r5_tc042(driver, ts_id):
+    # Login Precon here
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc044(driver, ts_id):
+    # Login Precon here
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc065(driver, ts_id):
+    # Login Precon here
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc066(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc067(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc068(driver, ts_id): #DEFERRED
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_outage_incidents(driver)
+    overview.click_report_outage(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc069(driver, ts_id):  #TOBE CONTINUED
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_outage_incidents(driver)
+    overview.click_Report_Streelight(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc070(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_accounts(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc072(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_bills_payments(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc046(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_contact_us(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc073(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_activity_tracker(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc127(driver, ts_id):
+
+    home = Home()
+    home.click_home_register(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc128(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_activity_tracker(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc129(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_bright_idea(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc130(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_faq(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')

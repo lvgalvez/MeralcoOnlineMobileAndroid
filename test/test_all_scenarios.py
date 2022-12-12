@@ -1,7 +1,8 @@
+import time
+
 from appium import webdriver
 from Utilities.ExcelReader import *
 from TestCases import *
-
 
 import pytest
 
@@ -568,6 +569,55 @@ def test_service_enrolment_to_mo_account(
 #     create_folder(screenshot_folder, ts_id)
 #     reg_tc006(driver, ts_id, facebook_email, facebook_password)
 #     driver.quit()
+
+@pytest.mark.tags("TS006")
+def test_r7_TS006():
+    driver = webdriver.Remote(host, desired_cap)
+    time.sleep(10)
+    ts_id = "TS006"
+    create_folder(screenshot_folder, ts_id)
+    r7_tc051(driver, ts_id)
+    time.sleep(5)
+    driver.quit()
+
+
+@pytest.mark.tags("TS012")
+def test_r7_TS012():
+    driver = webdriver.Remote(host, desired_cap)
+    time.sleep(10)
+    ts_id = "TS012"
+    create_folder(screenshot_folder, ts_id)
+    #r7_tc056(driver, ts_id)
+    time.sleep(5)
+    driver.quit()
+
+
+def test_TS091():
+    driver = webdriver.Remote(host, desired_cap)
+    time.sleep(10)
+    ts_id = "TS091"
+    create_folder(screenshot_folder, ts_id)
+    r5_tc042(driver, ts_id)
+    r5_tc044(driver, ts_id)
+    r5_tc065(driver, ts_id)
+    r5_tc066(driver, ts_id)
+    r5_tc067(driver, ts_id)
+    r5_tc070(driver, ts_id)
+    r5_tc072(driver, ts_id)
+    r5_tc046(driver, ts_id)
+    r5_tc073(driver, ts_id)
+    r5_tc127(driver, ts_id)
+    r5_tc128(driver, ts_id)
+    r5_tc129(driver, ts_id)
+
+
+    time.sleep(5)
+    driver.quit()
+
+
+
+
+
 
 
 def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_1_CAN_with_Single_Service_Android():

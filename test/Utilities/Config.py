@@ -17,7 +17,8 @@ screenshot_folder = f"{root_dir.parent}/Screenshots/"
 desired_cap = {
     "platformName": "Android",
     "platformVersion": "13",
-    "deviceName": "emulator-5554",
+    #"deviceName": "emulator-5554",
+    "deviceName": "Android_Automation",
     "automationName": "UIAutomator2",
     "app": meralco_online,
     "noReset": "false",
