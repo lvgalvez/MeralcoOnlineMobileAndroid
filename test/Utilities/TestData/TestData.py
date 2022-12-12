@@ -18,3 +18,13 @@ Release5 = {
     'password_report_outage': 'Meralco01',
     'landmark_report_outage': 'Sample Landmark',
 }
+
+Release7 = {
+    'card_number': '4012001037141112',
+    'expiry': '12/27',
+    'cvv': '212',
+    'first_name': 'Juan',
+    'last_name': 'Dela Cruz',
+
+
+}
