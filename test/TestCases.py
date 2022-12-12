@@ -17,8 +17,9 @@ from Pages.ProfilePage import *
 from Pages.SwitchServicesPage import Switch
 from Utilities.Config import *
 
-
 multiple_account = "MV-TS001"
+
+
 # SSO_Login_Forget_Change_Pass_Android
 
 
@@ -190,8 +191,9 @@ def op_tc001(driver, ts_id, username, password, first_name, last_name,
     bayad.click_pay(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC006 Step 7.png')
 
+
 def op_tc004a(driver, ts_id, username, password, first_name, last_name,
-             card_number, cvv, expiry, amount, passkey):
+              card_number, cvv, expiry, amount, passkey):
     # TC004a_Validation_of_Tooltip_TRO
     home = Home()
     home.click_home_login(driver)
@@ -218,7 +220,7 @@ def op_tc004a(driver, ts_id, username, password, first_name, last_name,
 
 
 def op_tc004b(driver, ts_id, username, password, first_name, last_name,
-             card_number, cvv, expiry, amount, passkey):
+              card_number, cvv, expiry, amount, passkey):
     # TC004b_Validation_of_Tooltip_Sent
     home = Home()
     home.click_home_login(driver)
@@ -244,7 +246,7 @@ def op_tc004b(driver, ts_id, username, password, first_name, last_name,
 
 
 def op_tc004c(driver, ts_id, username, password, first_name, last_name,
-             card_number, cvv, expiry, amount, passkey):
+              card_number, cvv, expiry, amount, passkey):
     # TC004c_Validation_of_Tooltip_Deposit
     home = Home()
     home.click_home_login(driver)
@@ -632,7 +634,7 @@ def mv_tc011(driver, ts_id):
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC011 Step 6.png')
 
 
-#OPB
+# OPB
 
 def opb_tc001(driver, ts_id, username, password, sin, kwh):
     # TC001_Enrolment_of_service_to_portal_account
@@ -658,9 +660,8 @@ def opb_tc001(driver, ts_id, username, password, sin, kwh):
     switch.click_date_month(driver)
     switch.click_month(driver)
     switch.click_day(driver)
-    #switch.click_add_service(driver)
+    # switch.click_add_service(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}/{ts_id}_TC001 Step 2.png')
-
 
 
 def opb_tc002(driver, ts_id, username, password):
@@ -724,7 +725,7 @@ def opb_tc003(driver, ts_id, username, password):
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC003 Step 4.png')
 
 
-def opb_tc004(driver, ts_id, username, password,):
+def opb_tc004(driver, ts_id, username, password, ):
     # TC002_Unerolment_of_service_to_portal_account
     home = Home()
     home.click_home_login(driver)
@@ -742,12 +743,10 @@ def opb_tc004(driver, ts_id, username, password,):
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC002 Step 1.png')
 
 
-
-
-#IPA
+# IPA
 
 def ipa_tc003(driver, ts_id, username, password, first_name, last_name,
-             card_number, cvv, expiry, amount, passkey):
+              card_number, cvv, expiry, amount, passkey):
     # TC001_Payment_Transaction
     home = Home()
     home.click_home_login(driver)
@@ -801,7 +800,8 @@ def ipa_tc003(driver, ts_id, username, password, first_name, last_name,
     billspayments.click_paid(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC003 Step 11.png')
 
-#Reg
+
+# Reg
 
 
 def reg_precon(driver, ts_id, precon_mail, precon_password, precon_number):
@@ -956,7 +956,8 @@ def reg_tc004(driver, ts_id, email, first_name, middle_name, last_name, mobile_n
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC004 Step 3.png')
     registration.click_register(driver, 5)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC004 Step 4.png')
-    takeScreenshot(f'/sdcard/uiautomator-screenshots/{ts_id}_TC005 Step 1.png')
+    # takeScreenshot(f'/sdcard/uiautomator-screenshots/{ts_id}_TC005 Step 1.png')
+
 
 def reg_tc005(driver, ts_id, google_email, google_password):
     # Registration_Google
@@ -990,3 +991,97 @@ def reg_tc006(driver, ts_id, facebook_email, facebook_password):
     facebookLogin.click_email_continue(driver)
     facebookLogin.click_send_continue(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC006 Step 3.png')
+
+
+def r7_tc051(driver, ts_id):
+    home = Home()
+    print("START")
+    login = Login()
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    home.click_home_login(driver)
+    time.sleep(5)
+    login.set_username(driver, 'atconcernmultiple@yopmail.com')
+    login.set_password(driver, 'Meralco01')
+    login.click_login(driver)
+    time.sleep(10)
+    #allow API
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+def r7_tc052(driver, ts_id):
+    home = Home()
+    login = Login()
+    overview = Overview()
+    bills = BillsPayments()
+    print("START")
+    home.click_home_login(driver)
+    time.sleep(5)
+    login.set_username(driver, 'atconcernmultiple@yopmail.com')
+    login.set_password(driver, 'Meralco01')
+    login.click_login(driver)
+    time.sleep(10)
+    # add script for allow button
+    overview.click_hamburger_menu(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    time.sleep(5)
+    #click paybills
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+    bills.click_bill(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 3.png')
+
+def r7_tc053(driver, ts_id):
+    home = Home()
+    login = Login()
+    overview = Overview()
+    print("START")
+    home.click_home_login(driver)
+    time.sleep(5)
+    login.set_username(driver, 'atconcernmultiple@yopmail.com')
+    login.set_password(driver, 'Meralco01')
+    login.click_login(driver)
+    time.sleep(10)
+    # add script for allow button
+    overview.click_hamburger_menu(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    #click Contact Us
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+
+def r7_tc054(driver, ts_id):
+    home = Home()
+    print("START")
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    home.click_app_cal(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+
+def r7_tc055(driver, ts_id):
+    home = Home()
+    print("START")
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    home.click_home_login(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+
+def r7_tc056(driver, ts_id):
+    home = Home()
+    print("START")
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    home.click_orange_tag(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+def viewPayment(driver, ts_id):
+    home = Home()
+    login = Login()
+    overview = Overview()
+    print("START")
+    home.click_home_login(driver)
+    time.sleep(5)
+    login.set_username(driver, 'atconcernmultiple@yopmail.com')
+    login.set_password(driver, 'Meralco01')
+    login.click_login(driver)
+    time.sleep(10)
+    # add script for allow button
+    overview.click_hamburger_menu(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    # click Bills and payment
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')

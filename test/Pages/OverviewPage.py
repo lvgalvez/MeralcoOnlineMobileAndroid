@@ -17,7 +17,7 @@ class Overview(object):
     Overview_Outage_Incidents = "//android.view.View[7]"
     Overview_Activity_Tracker = "//android.view.View[6]"
     Overview_Kebab_Overview = "//android.view.View[2]/android.view.View/android.view.View[1]"
-
+    overview_hamburger_menu = "//android.webkit.WebView[@index='0']/android.view.View[@index='0']/android.view.View[@index='0']"
 
     def click_kebab_menu(self, driver):
         self.click_kebab_menu = driver.find_element(By.XPATH, Overview.Overview_Kebab)
@@ -77,3 +77,7 @@ class Overview(object):
 
     def swipe_down(self, driver):
         driver.swipe(start_x=75, start_y=2000, end_x=75, end_y=1000, duration=800)
+
+    def click_hamburger_menu(self,driver):
+        driver.find_element(By.XPATH, self.overview_hamburger_menu).click()
+

@@ -21,7 +21,7 @@ class BillsPayments(object):
     BillsPayments_Hide_Paid = "//android.view.View[3]"
     BillsPayments_Reclick_Unpaid = "//android.view.View[2]/android.view.View[2]"
     BillsPayments_Back_Bill = "//android.view.View[1]/android.view.View[1]/android.widget.TextView[1]"
-
+    select_bill = "//android.view.View[@index='2']/android.view.View[@index='3']/android.view.View[@index='3']"
 
     def click_pay_now(self, driver):
         self.click_pay_now = driver.find_element(By.XPATH, BillsPayments.BillsPayments_Pay_Now)
@@ -107,3 +107,8 @@ class BillsPayments(object):
 
     def swipe_up(self, driver):
         driver.swipe(start_x=75, start_y=600, end_x=75, end_y=0, duration=800)
+
+    def click_bill(self, driver):
+        driver.find_element(By.XPATH, self.select_bill).clcik()
+
+
