@@ -17,7 +17,36 @@ class Overview(object):
     Overview_Outage_Incidents = "//android.view.View[7]"
     Overview_Activity_Tracker = "//android.view.View[6]"
     Overview_Kebab_Overview = "//android.view.View[2]/android.view.View/android.view.View[1]"
+    Overview_Report_Outage = "//android.view.View/android.view.View[2]/android.view.View/android.view.View[1]"
+    Overview_Report_Streetlight = "//android.view.View/android.view.View[2]/android.view.View/android.view.View[2]"
+    Overview_Contact_Us = "//android.view.View/android.view.View[2]/android.view.View/android.view.View[12]"
+    Overview_Bright_Idea = "//android.view.View/android.view.View[8]"
+    Overview_Faq = "//android.view.View/android.view.View[11]"
 
+
+    def click_faq(self, driver):
+        self.click_faq = driver.find_element(By.XPATH, Overview.Overview_Faq)
+        self.click_faq.click()
+        time.sleep(sleep_time)
+    def click_contact_us(self, driver):
+        self.click_contact_us = driver.find_element(By.XPATH, Overview.Overview_Contact_Us)
+        self.click_contact_us.click()
+        time.sleep(sleep_time)
+
+    def click_bright_idea(self, driver):
+        self.click_bright_idea = driver.find_element(By.XPATH, Overview.Overview_Bright_Idea)
+        self.click_bright_idea.click()
+        time.sleep(sleep_time)
+
+    def click_Report_Streelight(self, driver):
+        self.click_Report_Streelight = driver.find_element(By.XPATH, Overview.Overview_Report_Streetlight)
+        self.click_Report_Streelight.click()
+        time.sleep(sleep_time)
+
+    def click_report_outage(self, driver):
+        self.click_report_outage = driver.find_element(By.XPATH, Overview.Overview_Report_Outage)
+        self.click_report_outage.click()
+        time.sleep(sleep_time)
 
     def click_kebab_menu(self, driver):
         self.click_kebab_menu = driver.find_element(By.XPATH, Overview.Overview_Kebab)
