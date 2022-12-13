@@ -667,6 +667,35 @@ def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_Multiple_CA
     driver.quit()
 
 
+def test_Failed_Payment_Transaction_Invalid_Card_details_Android():
+    module = "R5"
+    ts_id = "ts108"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc099(driver, ts_id, Release5['username_report_outage'], Release5['password_report_outage'], Release5['pay_card'],
+                   Release5['pay_invalid_cvv'], Release5['pay_invalid_expiry'], Release5['pay_first_name'], Release5['pay_last_name'],
+                   Release5['pay_invalid_security'])
+    driver.quit()
+
+
+def test_Failed_Payment_Transaction_Insufficient_Balance_Android():
+    module = "R5"
+    ts_id = "ts109"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc100(driver, ts_id, Release5['username_report_outage'], Release5['password_report_outage'], Release5['pay_insufficient_card'],
+                   Release5['pay_insufficient_cvv'], Release5['pay_insufficient_expiry'], Release5['pay_first_name'], Release5['pay_last_name'],
+                   Release5['pay_insufficient_security'])
+    driver.quit()
+
+def test_Failed_Payment_Transaction__Cancelled_Transaction_Android():
+    module = "R5"
+    ts_id = "ts110"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc101(driver, ts_id, Release5['username_report_outage'], Release5['password_report_outage'])
+    driver.quit()
+
 def test_Create_Outage_Report_No_Power_My_house_building_only_Android():
     module = "R5"
     ts_id = "ts114"
