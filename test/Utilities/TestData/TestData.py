@@ -26,7 +26,17 @@ Release5 = {
     'register_mobile': '09276558899',
     'register_can': '0136521935',
     'register_kwh': '100',
-    'register_date': '07/01/2022'
+    'register_date': '07/01/2022',
+    'pay_card': '3550 9981 6752 1049',
+    'pay_invalid_cvv': '999',
+    'pay_invalid_expiry': '12/23',
+    'pay_first_name': 'samp',
+    'pay_last_name': 'ple',
+    'pay_invalid_security': 'qwert',
+    'pay_insufficient_card': '5596 4592 7736 3286',
+    'pay_insufficient_cvv': '121',
+    'pay_insufficient_expiry': '12/25',
+    'pay_insufficient_security': 'paymaya12',
 }
 
 Release7 = {

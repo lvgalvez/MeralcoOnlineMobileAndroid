@@ -7,12 +7,12 @@ sleep_time = 3
 
 class Bayad(object):
     Bayad_Card = "//android.view.View[3]/android.widget.Button"
-    Bayad_First_Name = "//android.view.View[1]/android.view.View[1]/android.view.View/android.widget.EditText"
-    Bayad_Last_Name = "//android.view.View[2]/android.view.View[1]/android.view.View/android.widget.EditText"
-    Bayad_Card_Number = "//android.view.View[3]//android.widget.EditText"
-    Bayad_CVV = "//android.view.View[5]//android.widget.EditText"
-    Bayad_Expiry = "//android.view.View[4]/android.view.View[1]/android.view.View/android.widget.EditText"
-    Bayad_Pay = "//android.view.View[1]/android.widget.Button"
+    Bayad_First_Name = "//android.view.View[4]//android.widget.EditText"
+    Bayad_Last_Name = "//android.view.View[5]//android.widget.EditText"
+    Bayad_Card_Number = "//android.view.View[1]/android.view.View[1]/android.view.View/android.widget.EditText[@class = 'android.widget.EditText']"
+    Bayad_CVV = "//android.view.View[3]/android.view.View[1]/android.view.View/android.widget.EditText"
+    Bayad_Expiry = "//android.view.View[2]//android.widget.EditText"
+    Bayad_Pay = "//android.webkit.WebView/android.view.View[1]/android.view.View/android.widget.Button[@class = 'android.widget.Button']"
     Bayad_JBC = "//android.view.View[3]/android.widget.ToggleButton"
     Bayad_Total_Amount = "//android.widget.TextView[9]"
     Bayad_Passkey = "//android.widget.EditText"
@@ -21,6 +21,8 @@ class Bayad(object):
     Bayad_Back_Merchant = "//android.widget.Button"
     Bayad_Print = "//android.view.View[1]/android.widget.Button"
     Bayad_New_Transaction = "//android.view.View[3]/android.widget.Button"
+    Bayad_View_Details = "//android.widget.Button[@text = 'View Details']"
+
     Bayad_duplicate_proceed = "//android.widget.Button[@text='Proceed']"
 
     def click_total_amount(self, driver):
@@ -66,7 +68,29 @@ class Bayad(object):
 
     def set_card_number(self, driver, card_number):
         self.set_card_number = driver.find_element(By.XPATH, Bayad.Bayad_Card_Number)
-        self.set_card_number.send_keys(card_number)
+        self.set_card_number.click()
+        number = list(str(card_number))
+        for i in number:
+            if i == '0':
+                driver.press_keycode(7)
+            if i == '1':
+                driver.press_keycode(8)
+            if i == '2':
+                driver.press_keycode(9)
+            if i == '3':
+                driver.press_keycode(10)
+            if i == '4':
+                driver.press_keycode(11)
+            if i == '5':
+                driver.press_keycode(12)
+            if i == '6':
+                driver.press_keycode(13)
+            if i == '7':
+                driver.press_keycode(14)
+            if i == '8':
+                driver.press_keycode(15)
+            if i == '9':
+                driver.press_keycode(16)
         time.sleep(sleep_time)
 
     def click_cvv(self, driver):
@@ -76,7 +100,29 @@ class Bayad(object):
 
     def set_cvv(self, driver, cvv):
         self.set_cvv = driver.find_element(By.XPATH, Bayad.Bayad_CVV)
-        self.set_cvv.send_keys(cvv)
+        self.set_cvv.click()
+        number = list(str(cvv))
+        for i in number:
+            if i == '0':
+                driver.press_keycode(7)
+            if i == '1':
+                driver.press_keycode(8)
+            if i == '2':
+                driver.press_keycode(9)
+            if i == '3':
+                driver.press_keycode(10)
+            if i == '4':
+                driver.press_keycode(11)
+            if i == '5':
+                driver.press_keycode(12)
+            if i == '6':
+                driver.press_keycode(13)
+            if i == '7':
+                driver.press_keycode(14)
+            if i == '8':
+                driver.press_keycode(15)
+            if i == '9':
+                driver.press_keycode(16)
         time.sleep(sleep_time)
 
     def click_expiry(self, driver):
@@ -117,6 +163,11 @@ class Bayad(object):
     def click_print(self, driver):
         self.click_print = driver.find_element(By.XPATH, Bayad.Bayad_Print)
         self.click_print.click()
+        time.sleep(8)
+
+    def click_view_details(self, driver):
+        self.view_details = driver.find_element(By.XPATH, Bayad.Bayad_View_Details)
+        self.view_details.click()
         time.sleep(8)
 
     def click_new_transaction(self, driver):

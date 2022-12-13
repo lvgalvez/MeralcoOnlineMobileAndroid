@@ -9,7 +9,7 @@ sleep_time = 3
 class BillsPayments(object):
     BillsPayments_Pay_Now = "//android.widget.TextView[@text = 'Pay Now']"
     BillsPayments_Pay_Amount = "//android.widget.EditText"
-    BillsPayments_Next = "//android.view.View[2]/android.view.View[2]"
+    BillsPayments_Next = "//android.view.View[@text = 'Next']"
     BillsPayments_Proceed = "//android.view.View[3]/android.widget.TextView"
     BillsPayments_CAN = "//android.widget.TextView[3]"
     BillsPayments_All_Payment = "//android.view.View[2]/android.view.View[1]//android.widget.TextView[2]"
