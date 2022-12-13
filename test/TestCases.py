@@ -1042,6 +1042,7 @@ def r7_tc052(driver, ts_id):
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
     bills.click_bill(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 3.png')
+    driver.quit()
 
 def r7_tc053(driver, ts_id):
     home = Home()
@@ -1054,7 +1055,7 @@ def r7_tc053(driver, ts_id):
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
     overview.click_contact_us(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
-
+    driver.quit()
 
 def r7_tc054(driver, ts_id):
     home = Home()
@@ -1062,7 +1063,7 @@ def r7_tc054(driver, ts_id):
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
     home.click_app_cal(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
-
+    driver.quit()
 
 def r7_tc055(driver, ts_id):
     home = Home()
@@ -1070,7 +1071,7 @@ def r7_tc055(driver, ts_id):
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
     home.click_home_login(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
-
+    driver.quit()
 
 def r7_tc056(driver, ts_id):
     home = Home()
@@ -1078,6 +1079,7 @@ def r7_tc056(driver, ts_id):
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
     home.click_orange_tag(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+    driver.quit()
 
 def r7_tc057(driver, ts_id):
 
@@ -1126,6 +1128,7 @@ def r7_tc057(driver, ts_id):
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 9.png')
 
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 10.png')
+    driver.quit()
 
 def r7_tc058(driver, ts_id):
     overview = Overview()
@@ -1178,7 +1181,7 @@ def r7_tc058(driver, ts_id):
 
     billsPayment.click_ok_modal(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 12.png')
-
+    driver.quit()
 
 
 def r5_tc046(driver, ts_id):

@@ -580,15 +580,19 @@ def test_r7_TS006():
     time.sleep(5)
     driver.quit()
 
+@pytest.mark.tags("TS009")
 def test_r7_TS009():
     driver = webdriver.Remote(host, desired_cap)
     time.sleep(10)
     ts_id = "TS009"
     #create_folder(screenshot_folder, ts_id)
+    r7_tc052(driver, ts_id)
+    r7_tc053(driver, ts_id)
     r7_tc054(driver, ts_id)
+    r7_tc055(driver, ts_id)
     r7_tc056(driver, ts_id)
     time.sleep(5)
-    driver.quit()
+
 
 @pytest.mark.tags("TS012")
 def test_r7_TS012():
@@ -596,7 +600,7 @@ def test_r7_TS012():
     time.sleep(10)
     ts_id = "TS012"
     #create_folder(screenshot_folder, ts_id)
-    #r7_tc056(driver, ts_id)
+    r7_tc051(driver, ts_id)
     time.sleep(5)
 
 # @pytest.mark.tags("TS006")
