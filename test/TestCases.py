@@ -993,6 +993,9 @@ def reg_tc006(driver, ts_id, facebook_email, facebook_password):
     facebookLogin.click_send_continue(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC006 Step 3.png')
 
+
+
+
 def r7_tc051(driver, ts_id):
     home = Home()
     print("START")
@@ -1028,70 +1031,7 @@ def r7_tc056git(driver, ts_id):
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
 
 
-def r5_tc042(driver, ts_id):
-    # Login Precon here
 
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
-
-def r5_tc044(driver, ts_id):
-    # Login Precon here
-
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
-
-def r5_tc065(driver, ts_id):
-    # Login Precon here
-
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
-
-def r5_tc066(driver, ts_id):
-    # Login Precon here
-
-    overview = Overview()
-    overview.click_kebab_menu(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
-
-def r5_tc067(driver, ts_id):
-    # Login Precon here
-
-    overview = Overview()
-    overview.click_kebab_menu(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
-
-def r5_tc068(driver, ts_id): #DEFERRED
-    # Login Precon here
-
-    overview = Overview()
-    overview.click_kebab_menu(driver)
-    overview.click_outage_incidents(driver)
-    overview.click_report_outage(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
-
-def r5_tc069(driver, ts_id):  #TOBE CONTINUED
-    # Login Precon here
-
-    overview = Overview()
-    overview.click_kebab_menu(driver)
-    overview.click_outage_incidents(driver)
-    overview.click_Report_Streelight(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
-
-def r5_tc070(driver, ts_id):
-    # Login Precon here
-
-    overview = Overview()
-    overview.click_kebab_menu(driver)
-    overview.click_accounts(driver)
-
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
-
-def r5_tc072(driver, ts_id):
-    # Login Precon here
-
-    overview = Overview()
-    overview.click_kebab_menu(driver)
-    overview.click_bills_payments(driver)
-
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
 
 def r5_tc046(driver, ts_id):
     # Login Precon here

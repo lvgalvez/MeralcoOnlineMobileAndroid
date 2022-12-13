@@ -23,6 +23,8 @@ class Overview(object):
     Overview_Contact_Us = "//android.view.View/android.view.View[2]/android.view.View/android.view.View[12]"
     Overview_Bright_Idea = "//android.view.View/android.view.View[8]"
     Overview_Faq = "//android.view.View/android.view.View[11]"
+    Overview_Appliance_Calculator = "//android.widget.TextView[@text = 'Appliance Calculator']"
+    Overview_Orange_Tag = "//android.widget.TextView[@text = 'Orange Tag']"
 
 
     def click_faq(self, driver):
@@ -112,3 +114,13 @@ class Overview(object):
 
     def swipe_down(self, driver):
         driver.swipe(start_x=75, start_y=2000, end_x=75, end_y=1000, duration=800)
+
+    def click_appliance_calculator(self, driver):
+        self.appliance_calculator = driver.find_element(By.XPATH, Overview.Overview_Appliance_Calculator)
+        self.appliance_calculator.click()
+        time.sleep(5)
+
+    def click_orange_tag(self, driver):
+        self.orange_tag = driver.find_element(By.XPATH, Overview.Overview_Orange_Tag)
+        self.orange_tag.click()
+        time.sleep(5)

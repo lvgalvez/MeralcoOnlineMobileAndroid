@@ -16,7 +16,7 @@ class Outage_Incidents(object):
     Outage_Address_Radio = "//android.view.View[3]/android.widget.RadioButton"
     Outage_Report_Number = "//android.view.View[5]/android.widget.RadioButton"
     Outage_Back = "//android.webkit.WebView/android.view.View[1]/android.view.View[1]//android.widget.TextView[1]"
-    Outage_Pole_Broken = "//android.widget.RadioGroup/android.widget.RadioGroup[1]/android.view.View[1]/android.view.View[1]/android.view.View/android.widget.TextView"
+    Outage_Pole_Broken = "//android.widget.TextView[@text = 'Pole is broken']"
     Outage_Report_Next = "//android.webkit.WebView/android.view.View[1]/android.view.View[1]//android.widget.TextView[3]"
     Outage_Province = "//android.view.View[2]/android.view.View[1]/android.view.View"
     Outage_Selected_Province = "//android.widget.CheckedTextView[1]"
@@ -32,7 +32,7 @@ class Outage_Incidents(object):
     Outage_Landmark = "//android.view.View[2]/android.widget.EditText"
     Outage_Details_Next = "//android.widget.TextView[3]"
     Outage_Email_Notification = "//android.view.View[2]/android.view.View[1]//android.widget.Image"
-    Outage_Close = "//android.view.View[1]/android.view.View[1]/android.view.View/android.widget.TextView[2]"
+    Outage_Close = "//android.widget.TextView[@text = 'Close']"
     Outage_Report = "//android.view.View[2]/android.view.View/android.view.View[1]"
     Outage_Report_Back = "//android.view.View/android.view.View[1]/android.view.View/android.widget.TextView[1]"
     Outage_Map = "//android.view.View/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.view.View[1]/android.view.View/android.view.View[2]"
@@ -50,6 +50,10 @@ class Outage_Incidents(object):
     Outage_Report_Landmark = "//android.widget.TextView[@text = 'Landmarks/Directions']"
     Outage_SMS = "//android.widget.TextView[@text = 'SMS']"
     Outage_Submit = "//android.widget.TextView[@text = 'Submit']"
+    Outage_Power_Off = "//android.widget.TextView[@text = 'My power goes on and off']"
+    Outage_Streetlight_Yes = "//android.widget.TextView[@text = 'Yes']"
+
+
 
 
     def click_view_reports(self, driver):
@@ -270,3 +274,22 @@ class Outage_Incidents(object):
     def swipe_left(self, driver):
         driver.swipe(start_x=75, start_y=1000, end_x=1075, end_y=1000, duration=200)
         time.sleep(8)
+
+    def click_undetected_next(self, driver):
+        TouchAction(driver).tap(None, 1000, 200, 1).perform()
+        time.sleep(10)
+
+    def click_poweroff(self, driver):
+        self.poweroff = driver.find_element(By.XPATH, Outage_Incidents.Outage_Power_Off)
+        self.poweroff.click()
+        time.sleep(5)
+
+    def click_streetlight_yes(self, driver):
+        self.streetlight_yes = driver.find_element(By.XPATH, Outage_Incidents.Outage_Streetlight_Yes)
+        self.streetlight_yes.click()
+        time.sleep(5)
+
+    def click_undetected_streetlight(self, driver):
+        TouchAction(driver).tap(None, 300, 2200, 1).perform()
+        time.sleep(10)
+
