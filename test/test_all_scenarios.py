@@ -4,7 +4,6 @@ from appium import webdriver
 from Utilities.ExcelReader import *
 from TestCases import *
 
-
 import pytest
 
 from test.Utilities.Release5.TestCases import *
@@ -231,13 +230,13 @@ td_reg = "ts_id, email, first_name, middle_name, last_name, mobile_number, sin, 
 #
 # # OPB
 #
-@pytest.mark.parametrize(td_opb, get_data("td_opb", "OPB-TS001"))
-def test_service_enrolment_to_mo_account(
-        ts_id, username, password, sin, kwh):
-    driver = webdriver.Remote(host, desired_cap)
-    create_folder(screenshot_folder, ts_id)
-    opb_tc001(driver, ts_id, username, password, sin, kwh)
-    driver.quit()
+# @pytest.mark.parametrize(td_opb, get_data("td_opb", "OPB-TS001"))
+# def test_service_enrolment_to_mo_account(
+#         ts_id, username, password, sin, kwh):
+#     driver = webdriver.Remote(host, desired_cap)
+#     create_folder(screenshot_folder, ts_id)
+#     opb_tc001(driver, ts_id, username, password, sin, kwh)
+#     driver.quit()
 #
 #
 # @pytest.mark.parametrize(td_opb, get_data("td_opb", "OPB-TS002"))
@@ -600,16 +599,65 @@ def test_r7_TS012():
     #r7_tc056(driver, ts_id)
     time.sleep(5)
 
-def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_1_CAN_with_Single_Service_Android():
-    module = "Concern"
-    ts_id = "ts024"
+# @pytest.mark.tags("TS006")
+# def test_r7_TS006():
+#     driver = webdriver.Remote(host, desired_cap)
+#     time.sleep(10)
+#     ts_id = "TS006"
+#     create_folder(screenshot_folder, ts_id)
+#     r7_tc051(driver, ts_id)
+#     time.sleep(5)
+#     driver.quit()
+#
+#
+# @pytest.mark.tags("TS012")
+# def test_r7_TS012():
+#     driver = webdriver.Remote(host, desired_cap)
+#     time.sleep(10)
+#     ts_id = "TS012"
+#     create_folder(screenshot_folder, ts_id)
+#     #r7_tc056(driver, ts_id)
+#     time.sleep(5)
+#     driver.quit()
+#
+#
+def test_TS091():
+    module = "Release5"
+    ts_id = "ts091"
     driver = webdriver.Remote(host, desired_cap)
-    create_folder(screenshot_folder, module)
-    concern_precondition01(driver, ts_id, Concern['username_single_service'], Concern['password'])
-    concern_tc001(driver, ts_id)
-    concern_tc008a(driver, ts_id, Concern['Description'])
-    concern_tc009(driver, ts_id)
+    create_folder(screenshot_folder, ts_id)
+    release5_tc042(driver, ts_id)
+    release5_tc044(driver, ts_id, Release5['username_reskinning'], Release5['password_reskinning'])
+    release5_tc065(driver, ts_id)
+    release5_tc066(driver, ts_id)
+    release5_tc067(driver, ts_id)
+    release5_tc069(driver, ts_id, Release5['landmark_report_outage'])
+    release5_tc070(driver, ts_id)
+    release5_tc045(driver, ts_id)
+    release5_tc072(driver, ts_id)
+    release5_tc046(driver, ts_id, Concern['Description'])
+    release5_tc073(driver, ts_id)
+    release5_tc127(driver, ts_id, Release5['register_email'], Release5['register_first'], Release5['register_middle'], Release5['register_last']
+                  , Release5['register_mobile'], Release5['register_can'], Release5['register_kwh'], Release5['register_date'])
+    release5_tc128(driver, ts_id, Release5['username_reskinning'], Release5['password_reskinning'])
+    release5_tc129(driver, ts_id)
+    release5_tc130(driver, ts_id)
+    release5_tc131(driver, ts_id)
+    release5_tc132(driver, ts_id)
     driver.quit()
+#
+#
+#
+# def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_1_CAN_with_Single_Service_Android():
+#     module = "Concern"
+#     ts_id = "ts024"
+#     driver = webdriver.Remote(host, desired_cap)
+#     create_folder(screenshot_folder, module)
+#     concern_precondition01(driver, ts_id, Concern['username_single_service'], Concern['password'])
+#     concern_tc001(driver, ts_id)
+#     concern_tc008a(driver, ts_id, Concern['Description'])
+#     concern_tc009(driver, ts_id)
+#     driver.quit()
 
 
 def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_1_CAN_with_Multiple_Service_Android():
@@ -649,9 +697,46 @@ def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_Multiple_CA
 
 
 def test_Create_Outage_Report_No_Power_My_house_building_only_Android():
-    module = "Release5"
+    module = "R5"
     ts_id = "ts114"
     driver = webdriver.Remote(host, desired_cap)
     create_folder(screenshot_folder, module)
-    release5_tc102(driver, ts_id, Release5['username_report_outage'], Release5['password_report_outage'], Release5['landmark_report_outage'])
+    release5_tc102(driver, ts_id, Release5['username_report_outage'], Release5['password_report_outage'], Release5['landmark_report_outage'], "House")
     driver.quit()
+
+
+def test_Create_Outage_Report_No_Power_Whole_street_block_Android():
+    module = "R5"
+    ts_id = "ts115"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc102(driver, ts_id, Release5['username_report_outage'], Release5['password_report_outage'], Release5['landmark_report_outage'], "Street")
+    driver.quit()
+
+
+def test_Create_Outage_Report_No_Power_Unstable_Power_Android():
+    module = "R5"
+    ts_id = "ts116"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc102(driver, ts_id, Release5['username_report_outage'], Release5['password_report_outage'], Release5['landmark_report_outage'], "Power")
+    driver.quit()
+
+
+def test_Create_Outage_Report_No_Power_Streetlight_Concern_Android():
+    module = "R5"
+    ts_id = "ts117"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc102(driver, ts_id, Release5['username_report_outage'], Release5['password_report_outage'], Release5['landmark_report_outage'], "Streetlight")
+    driver.quit()
+
+
+def test_Create_Outage_Report_No_Power_Safety_Concern_Android():
+    module = "R5"
+    ts_id = "ts118"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc102(driver, ts_id, Release5['username_report_outage'], Release5['password_report_outage'], Release5['landmark_report_outage'], "Safety")
+    driver.quit()
+

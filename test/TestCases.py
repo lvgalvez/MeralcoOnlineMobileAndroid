@@ -646,6 +646,8 @@ def opb_tc001(driver, ts_id, username, password, sin, kwh):
     login.set_password(driver, password)
     login.click_login(driver)
     login.click_allow(driver)
+
+
     overview = Overview()
     overview.click_kebab_menu(driver)
     overview.click_switch_services(driver)
@@ -1000,6 +1002,19 @@ def r7_login_utility(driver):
     login = Login()
     overview = Overview()
     print("START")
+
+def r7_tc051(driver, ts_id):
+    home = Home()
+    print("START")
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    home.click_home_login(driver)
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+
+def r7_tc053(driver, ts_id):
+    home = Home()
+    login = Login()
+    print("START")
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
     home.click_home_login(driver)
     time.sleep(5)
     login.set_username(driver, 'atconcernmultiple@yopmail.com')
@@ -1163,3 +1178,57 @@ def r7_tc058(driver, ts_id):
 
     billsPayment.click_ok_modal(driver)
     driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 12.png')
+
+
+
+def r5_tc046(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_contact_us(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc073(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_activity_tracker(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc127(driver, ts_id):
+
+    home = Home()
+    home.click_home_register(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc128(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_activity_tracker(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc129(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_bright_idea(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')
+
+def r5_tc130(driver, ts_id):
+    # Login Precon here
+
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_faq(driver)
+
+    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC042 Step 1.png')

@@ -7,7 +7,7 @@ sleep_time = 3
 
 
 class BillsPayments(object):
-    BillsPayments_Pay_Now = "//android.view.View[1]/android.widget.TextView[3]"
+    BillsPayments_Pay_Now = "//android.widget.TextView[@text = 'Pay Now']"
     BillsPayments_Pay_Amount = "//android.widget.EditText"
     BillsPayments_Next = "//android.view.View[2]/android.view.View[2]"
     BillsPayments_Proceed = "//android.view.View[3]/android.widget.TextView"
@@ -29,6 +29,10 @@ class BillsPayments(object):
     bill_amount = "//android.widget.EditText"
     next_btn = "//android.view.View[@text='Next']"
     view_pdf = "//android.widget.Button[@text = 'View PDF']"
+    #BillsPayments_Back_Bill = "//android.widget.TextView[@text = 'Back']"
+    BillsPayments_Advanced = "//android.widget.TextView[@text = 'Pay in Advance']"
+    BillsPayments_Bill = "//android.widget.TextView[4]"
+
 
     def click_pay_now(self, driver):
         self.click_pay_now = driver.find_element(By.XPATH, BillsPayments.BillsPayments_Pay_Now)
@@ -111,6 +115,15 @@ class BillsPayments(object):
             self.click_back_bill.click()
             time.sleep(sleep_time)
 
+    def click_pay_advance(self, driver):
+            self.pay_advance = driver.find_element(By.XPATH, BillsPayments.BillsPayments_Advanced)
+            self.pay_advance.click()
+            time.sleep(sleep_time)
+
+    def click_bill(self, driver):
+            self.click_bill = driver.find_element(By.XPATH, BillsPayments.BillsPayments_Bill)
+            self.click_bill.click()
+            time.sleep(sleep_time)
 
     def swipe_up(self, driver):
         driver.swipe(start_x=75, start_y=600, end_x=75, end_y=0, duration=800)

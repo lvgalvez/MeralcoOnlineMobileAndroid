@@ -7,8 +7,9 @@ sleep_time = 3
 
 
 class Accounts(object):
-    Accounts_Service_Details = "//android.view.View[2]/android.view.View[1]"
-    Accounts_Details = "//android.view.View[2]/android.view.View[2]"
+    Accounts_Service_Details = "//android.widget.TextView[@text = 'Service Details']"
+    Accounts_Details = "//android.widget.TextView[@text = 'Account Details']"
+    Connected_Accounts = "//android.widget.TextView[@text = 'Connected Accounts']"
     Accounts_Unenroll_Service = "//android.view.View[7]"
     Accounts_Subscribe = "//android.view.View[6]/android.view.View"
     Accounts_Unsubscribe = "//android.view.View[6]/android.view.View/android.view.View"
@@ -39,6 +40,11 @@ class Accounts(object):
         self.click_unsubscribe.click()
         time.sleep(8)
 
+    def click_connected_accounts(self, driver):
+        self.connected_accounts = driver.find_element(By.XPATH, Accounts.Connected_Accounts)
+        self.connected_accounts.click()
+        time.sleep(8)
+
     def click_yes(self, driver):
         size = driver.find_element(By.XPATH, Accounts.Accounts_Frame).size
         height = ((size['height'])/2) + 230
@@ -48,3 +54,6 @@ class Accounts(object):
 
     def swipe_up(self, driver):
         driver.swipe(start_x=75, start_y=600, end_x=75, end_y=0, duration=800)
+
+    def swipe_down(self, driver):
+        driver.swipe(start_x=75, start_y=2100, end_x=75, end_y=1100, duration=200)

@@ -14,9 +14,19 @@ Concern = {
 }
 
 Release5 = {
-    'username_report_outage': 'atconcernsingle@yopmail.com',
+    'username_report_outage': 'atmooutageaccount@yopmail.com',
     'password_report_outage': 'Meralco01',
     'landmark_report_outage': 'Sample Landmark',
+    'username_reskinning': 'atmooutageaccount@yopmail.com',
+    'password_reskinning': 'Meralco01',
+    'register_email': 'reskinningemail@yopmai.com',
+    'register_first': 'reskinning',
+    'register_middle': 'middleskinning',
+    'register_last': 'lastskinning',
+    'register_mobile': '09276558899',
+    'register_can': '0136521935',
+    'register_kwh': '100',
+    'register_date': '07/01/2022'
 }
 
 Release7 = {
@@ -24,7 +34,5 @@ Release7 = {
     'expiry': '12/27',
     'cvv': '212',
     'first_name': 'Juan',
-    'last_name': 'Dela Cruz',
-
-
+    'last_name': 'Dela Cruz'
 }
