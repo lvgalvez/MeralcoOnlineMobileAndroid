@@ -570,6 +570,39 @@ td_reg = "ts_id, email, first_name, middle_name, last_name, mobile_number, sin, 
 #     reg_tc006(driver, ts_id, facebook_email, facebook_password)
 #     driver.quit()
 
+@pytest.mark.tags("TS006")
+def test_r7_TS006():
+    driver = webdriver.Remote(host, desired_cap)
+    time.sleep(10)
+    ts_id = "TS006"
+    #create_folder(screenshot_folder, ts_id)
+    r7_tc051(driver, ts_id)
+    time.sleep(5)
+    driver.quit()
+
+@pytest.mark.tags("TS009")
+def test_r7_TS009():
+    driver = webdriver.Remote(host, desired_cap)
+    time.sleep(10)
+    ts_id = "TS009"
+    #create_folder(screenshot_folder, ts_id)
+    r7_tc052(driver, ts_id)
+    r7_tc053(driver, ts_id)
+    r7_tc054(driver, ts_id)
+    r7_tc055(driver, ts_id)
+    r7_tc056(driver, ts_id)
+    time.sleep(5)
+
+
+@pytest.mark.tags("TS012")
+def test_r7_TS012():
+    driver = webdriver.Remote(host, desired_cap)
+    time.sleep(10)
+    ts_id = "TS012"
+    #create_folder(screenshot_folder, ts_id)
+    r7_tc051(driver, ts_id)
+    time.sleep(5)
+
 # @pytest.mark.tags("TS006")
 # def test_r7_TS006():
 #     driver = webdriver.Remote(host, desired_cap)

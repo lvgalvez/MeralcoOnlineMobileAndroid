@@ -28,3 +28,11 @@ Release5 = {
     'register_kwh': '100',
     'register_date': '07/01/2022'
 }
+
+Release7 = {
+    'card_number': '4012001037141112',
+    'expiry': '12/27',
+    'cvv': '212',
+    'first_name': 'Juan',
+    'last_name': 'Dela Cruz'
+}
