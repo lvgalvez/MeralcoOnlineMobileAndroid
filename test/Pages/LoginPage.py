@@ -49,7 +49,7 @@ class Login(object):
     def click_allow(self, driver):
         self.click_Allow = driver.find_element(By.XPATH, Login.Login_Allow)
         self.click_Allow.click()
-        time.sleep(15)
+        time.sleep(20)
 
     def click_forgot_password(self, driver):
         self.click_forgot_password = driver.find_element(By.XPATH, Login.Login_Forgot_Password)

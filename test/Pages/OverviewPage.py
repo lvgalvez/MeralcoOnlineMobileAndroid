@@ -117,6 +117,10 @@ class Overview(object):
     def swipe_down(self, driver):
         driver.swipe(start_x=75, start_y=2000, end_x=75, end_y=1000, duration=800)
 
+    def swipe_left(self, driver):
+        driver.swipe(start_x=500, start_y=1850, end_x=200, end_y=1850, duration=200)
+        time.sleep(5)
+
     def click_hamburger_menu(self,driver):
         driver.find_element(By.XPATH, self.overview_hamburger_menu).click()
 

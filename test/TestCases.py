@@ -1,3 +1,5 @@
+import time
+
 from Pages.AccountsPage import Accounts
 from Pages.ActivityTrackerPage import Activity_Tracker
 from Pages.BayadPage import Bayad
@@ -997,18 +999,19 @@ def reg_tc006(driver, ts_id, facebook_email, facebook_password):
 
 module = 'RFC'
 
-def r7_login_utility(driver):
+
+def r7_login_utility(driver, username, password):
     home = Home()
     login = Login()
-    overview = Overview()
     print("START")
-
-def r7_tc051(driver, ts_id):
-    home = Home()
-    print("START")
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
     home.click_home_login(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
+    time.sleep(5)
+    login.set_username(driver, username)
+    login.set_password(driver, password)
+    login.click_login(driver)
+    time.sleep(10)
+    login.click_allow(driver)
+
 
 def r7_tc053(driver, ts_id):
     home = Home()
@@ -1023,63 +1026,70 @@ def r7_tc053(driver, ts_id):
     time.sleep(10)
     login.click_allow(driver)
 
-def r7_tc051(driver, ts_id):
-    r7_login_utility(driver)
-    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC051 Step 1.png')
 
-def r7_tc052(driver, ts_id):
-    home = Home()
-    login = Login()
+def r7_tc051(driver, ts_id, username, password):
+    module = "R7"
+    r7_login_utility(driver, username, password)
+    overview = Overview()
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC051 Step 1.png')
+    overview.swipe_down(driver)
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC051 Step 1b.png')
+
+def r7_tc052(driver, ts_id, username, password):
+    module = "R7"
     overview = Overview()
     bills = BillsPayments()
     print("START")
-    r7_login_utility(driver)
+    r7_login_utility(driver, username, password)
 
     overview.click_kebab_menu(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC052 Step 1.png')
     time.sleep(5)
     overview.click_bills_payments(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
-    bills.click_bill(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 3.png')
-    driver.quit()
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC052 Step 1.png')
+    bills.click_payment_bill(driver)
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC052 Step 1.png')
+    bills.click_back_bill(driver)
 
 def r7_tc053(driver, ts_id):
-    home = Home()
-    login = Login()
+    module = "R7"
     overview = Overview()
-    print("START")
-    r7_login_utility(driver)
 
     overview.click_kebab_menu(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC053 Step 1.png')
     overview.click_contact_us(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
-    driver.quit()
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC053 Step 1.png')
+    overview = Overview()
+    overview.click_kebab_menu(driver)
+    overview.click_kebab_logout(driver)
 
 def r7_tc054(driver, ts_id):
+    module = "R7"
     home = Home()
     print("START")
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
     home.click_app_cal(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
-    driver.quit()
+    time.sleep(5)
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC054 Step 1.png')
+    home.swipe_left(driver)
+
 
 def r7_tc055(driver, ts_id):
+    module = "R7"
     home = Home()
     print("START")
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
     home.click_home_login(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
-    driver.quit()
+    #driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC055 Step 1.png')
+
 
 def r7_tc056(driver, ts_id):
+    module = "R7"
     home = Home()
     print("START")
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
     home.click_orange_tag(driver)
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 2.png')
-    driver.quit()
+    time.sleep(5)
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC056 Step 1.png')
+    home.swipe_left(driver)
+
 
 def r7_tc057(driver, ts_id):
 

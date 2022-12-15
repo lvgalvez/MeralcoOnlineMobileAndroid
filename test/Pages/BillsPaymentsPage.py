@@ -1,5 +1,6 @@
 import time
 
+from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 
@@ -10,7 +11,7 @@ class BillsPayments(object):
     BillsPayments_Pay_Now = "//android.widget.TextView[@text = 'Pay Now']"
     BillsPayments_Pay_Amount = "//android.widget.EditText"
     BillsPayments_Next = "//android.view.View[@text = 'Next']"
-    BillsPayments_Proceed = "//android.view.View[3]/android.widget.TextView"
+    BillsPayments_Proceed = "//android.widget.TextView[@text = 'Proceed']"
     BillsPayments_CAN = "//android.widget.TextView[3]"
     BillsPayments_All_Payment = "//android.view.View[2]/android.view.View[1]//android.widget.TextView[2]"
     BillsPayments_TRO_Tooltip = "//android.view.View[4]/android.view.View/android.widget.TextView[2]"
@@ -21,7 +22,7 @@ class BillsPayments(object):
     BillsPayments_Sample_Bill = "//android.view.View[3]/android.view.View[2]"
     BillsPayments_Hide_Paid = "//android.view.View[3]"
     BillsPayments_Reclick_Unpaid = "//android.view.View[2]/android.view.View[2]"
-    BillsPayments_Back_Bill = "//android.view.View[1]/android.view.View[1]/android.widget.TextView[1]"
+    #BillsPayments_Back_Bill = "//android.view.View[1]/android.view.View[1]/android.widget.TextView[1]"
     select_bill = "//android.view.View[@index='2']/android.view.View[@index='3']/android.view.View[@index='3']"
     pay_now_btn = "//android.view.View[@text='PAY NOW']"
     pay_bills_in_full_modal = "//android.view.View[@text='OK']"
@@ -29,9 +30,10 @@ class BillsPayments(object):
     bill_amount = "//android.widget.EditText"
     next_btn = "//android.view.View[@text='Next']"
     view_pdf = "//android.widget.Button[@text = 'View PDF']"
-    #BillsPayments_Back_Bill = "//android.widget.TextView[@text = 'Back']"
+    BillsPayments_Back_Bill = "//android.widget.TextView[@text = 'Back']"
     BillsPayments_Advanced = "//android.widget.TextView[@text = 'Pay in Advance']"
-    BillsPayments_Bill = "//android.widget.TextView[4]"
+    BillsPayments_Bill = "//android.view.View[3]"
+    Bill_Paynow = "//android.view.View[@text = 'PAY NOW']"
 
 
     def click_pay_now(self, driver):
@@ -120,7 +122,12 @@ class BillsPayments(object):
             self.pay_advance.click()
             time.sleep(sleep_time)
 
-    def click_bill(self, driver):
+    def click_bill_paynow(self, driver):
+            self.bill_paynow = driver.find_element(By.XPATH, BillsPayments.Bill_Paynow)
+            self.bill_paynow.click()
+            time.sleep(sleep_time)
+
+    def click_payment_bill(self, driver):
             self.click_bill = driver.find_element(By.XPATH, BillsPayments.BillsPayments_Bill)
             self.click_bill.click()
             time.sleep(sleep_time)
@@ -137,8 +144,6 @@ class BillsPayments(object):
     def click_ok_modal(self, driver):
         driver.find_element(By.XPATH, self.pay_bills_in_full_modal).click()
 
-    def click_proceed(self, driver):
-        driver.find_element(By.XPATH, self.proceed_btn).click()
 
     def enter_amount(self, driver, amount):
         element = driver.find_element(By.XPATH, self.bill_amount)
@@ -151,4 +156,7 @@ class BillsPayments(object):
     def click_view_pdf(self, driver):
         driver.find_element(By.XPATH, self.view_pdf).click()
 
+    def click_undetected_prompt(self, driver):
+        TouchAction(driver).tap(None, 700, 1380, 1).perform()
+        time.sleep(10)
 

@@ -10,9 +10,9 @@ class Home(object):
 
     Home_Register = "//android.widget.TextView[2]"
     Home_Login = "//android.webkit.WebView/android.view.View[1]/android.view.View/android.widget.TextView[1]"
-    login = "//android.webkit.WebView[@index='0']/android.view.View[@index='1']/android.view.View[@text='LOG IN']"
-    home_Orange_Tag = "//android.view.View[@text='Orange Tag']"
-    home_App_Cal = "//android.view.View[@text='Appliance Calculator']"
+    login = "//android.widget.TextView[@text = 'LOGIN']"
+    home_Orange_Tag = "//android.widget.TextView[@text = 'Orange Tag']"
+    home_App_Cal = "//android.widget.TextView[@text = 'Appliance Calculator']"
 
     def click_home_login(self, driver):
         time.sleep(10)
@@ -41,3 +41,7 @@ class Home(object):
         time.sleep(10)
         self.click_app_cal = driver.find_element(By.XPATH, Home.home_App_Cal)
         self.click_app_cal.click()
+
+    def swipe_left(self, driver):
+        driver.swipe(start_x=75, start_y=1000, end_x=1075, end_y=1000, duration=200)
+        time.sleep(5)

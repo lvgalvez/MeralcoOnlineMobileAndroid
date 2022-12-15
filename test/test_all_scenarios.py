@@ -585,12 +585,12 @@ def test_r7_TS009():
     driver = webdriver.Remote(host, desired_cap)
     time.sleep(10)
     ts_id = "TS009"
-    #create_folder(screenshot_folder, ts_id)
-    r7_tc052(driver, ts_id)
+    create_folder(screenshot_folder, ts_id)
+    r7_tc052(driver, ts_id, Release7['username'], Release7['password'])
     r7_tc053(driver, ts_id)
     r7_tc054(driver, ts_id)
-    r7_tc055(driver, ts_id)
     r7_tc056(driver, ts_id)
+    r7_tc055(driver, ts_id)
     time.sleep(5)
 
 
@@ -599,8 +599,8 @@ def test_r7_TS012():
     driver = webdriver.Remote(host, desired_cap)
     time.sleep(10)
     ts_id = "TS012"
-    #create_folder(screenshot_folder, ts_id)
-    r7_tc051(driver, ts_id)
+    create_folder(screenshot_folder, ts_id)
+    r7_tc051(driver, ts_id, Release7['username'], Release7['password'])
     time.sleep(5)
 
 # @pytest.mark.tags("TS006")
@@ -625,6 +625,15 @@ def test_r7_TS012():
 #     driver.quit()
 #
 #
+
+def test_Validation_of_removal_of_Banner_Ad_for_APA_subscription_Android():
+    module = "Release5"
+    ts_id = "ts004"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, ts_id)
+    release5_tc039(driver, ts_id, Release5['username_normal'], Release5['password_normal'])
+    driver.quit()
+
 def test_TS091():
     module = "Release5"
     ts_id = "ts091"
@@ -697,6 +706,61 @@ def test_Validation_of_CAN_field_in_Connect_with_Us_page_Account_has_Multiple_CA
     concern_tc001(driver, ts_id)
     concern_tc008d(driver, ts_id, Concern['Description'], Concern['can_sin_multiple'], Concern['sin_can_multiple'])
     concern_tc009(driver, ts_id)
+    driver.quit()
+
+
+def test_TS098():
+    module = "Release5"
+    ts_id = "ts098"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc096(driver, ts_id, Release5['pay_email_full'], Release5['pay_password_full'], Release5['pay_card'],
+                   Release5['pay_cvv'], Release5['pay_expiry'], Release5['pay_first_name'], Release5['pay_last_name'],
+                   Release5['pay_security'])
+    driver.quit()
+
+
+def test_TS099():
+    module = "Release5"
+    ts_id = "ts099"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc096(driver, ts_id, Release5['pay_email_partial'], Release5['pay_password_partial'], Release5['pay_card'],
+                   Release5['pay_cvv'], Release5['pay_expiry'], Release5['pay_first_name'], Release5['pay_last_name'],
+                   Release5['pay_security'])
+    driver.quit()
+
+
+def test_TS100():
+    module = "Release5"
+    ts_id = "ts100"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc096(driver, ts_id, Release5['pay_email_adjustment'], Release5['pay_password_adjustment'], Release5['pay_card'],
+                   Release5['pay_cvv'], Release5['pay_expiry'], Release5['pay_first_name'], Release5['pay_last_name'],
+                   Release5['pay_security'])
+    driver.quit()
+
+
+def test_TS101():
+    module = "Release5"
+    ts_id = "ts098"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc096(driver, ts_id, Release5['pay_email_SI'], Release5['pay_password_SI'], Release5['pay_card'],
+                   Release5['pay_cvv'], Release5['pay_expiry'], Release5['pay_first_name'], Release5['pay_last_name'],
+                   Release5['pay_security'])
+    driver.quit()
+
+
+def test_TS102():
+    module = "Release5"
+    ts_id = "ts102"
+    driver = webdriver.Remote(host, desired_cap)
+    create_folder(screenshot_folder, module)
+    release5_tc096(driver, ts_id, Release5['pay_email_overpayment'], Release5['pay_password_overpayment'], Release5['pay_card'],
+                   Release5['pay_cvv'], Release5['pay_expiry'], Release5['pay_first_name'], Release5['pay_last_name'],
+                   Release5['pay_security'])
     driver.quit()
 
 

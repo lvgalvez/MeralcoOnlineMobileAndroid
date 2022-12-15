@@ -19,6 +19,8 @@ Release5 = {
     'landmark_report_outage': 'Sample Landmark',
     'username_reskinning': 'atmooutageaccount@yopmail.com',
     'password_reskinning': 'Meralco01',
+    'username_normal': 'atmooutageaccount@yopmail.com',
+    'password_normal': 'Meralco01',
     'register_email': 'reskinningemail@yopmai.com',
     'register_first': 'reskinning',
     'register_middle': 'middleskinning',
@@ -27,7 +29,10 @@ Release5 = {
     'register_can': '0136521935',
     'register_kwh': '100',
     'register_date': '07/01/2022',
-    'pay_card': '3550 9981 6752 1049',
+    'pay_card': '3550998167521049',
+    'pay_cvv': '995',
+    'pay_expiry': '12/25',
+    'pay_security': 'secure35',
     'pay_invalid_cvv': '999',
     'pay_invalid_expiry': '12/23',
     'pay_first_name': 'samp',
@@ -37,6 +42,16 @@ Release5 = {
     'pay_insufficient_cvv': '121',
     'pay_insufficient_expiry': '12/25',
     'pay_insufficient_security': 'paymaya12',
+    'pay_email_full': 'atregfp01@yopmail.com',
+    'pay_password_full': 'Meralco01',
+    'pay_email_partial': 'atduplicatename01@yopmail.com',
+    'pay_password_partial': 'Meralco123',
+    'pay_email_adjustment': '',
+    'pay_password_adjustment': '',
+    'pay_email_SI': '',
+    'pay_password_SI': '',
+    'pay_email_overpayment': 'atregop@yopmail.com',
+    'pay_password_overpayment': 'Meralco01',
 }
 
 Release7 = {
@@ -44,5 +59,7 @@ Release7 = {
     'expiry': '12/27',
     'cvv': '212',
     'first_name': 'Juan',
-    'last_name': 'Dela Cruz'
+    'last_name': 'Dela Cruz',
+    'username': 'atconcernmultiple@yopmail.com',
+    'password': 'Meralco01'
 }
