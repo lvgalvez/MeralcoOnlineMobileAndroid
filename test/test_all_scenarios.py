@@ -593,6 +593,16 @@ def test_r7_TS009():
     r7_tc055(driver, ts_id)
     time.sleep(5)
 
+@pytest.mark.tags("TS010")
+def test_r7_TS010():
+    driver = webdriver.Remote(host, desired_cap)
+    time.sleep(10)
+    ts_id = "TS010"
+    create_folder(screenshot_folder, ts_id)
+    r7_tc057(driver, ts_id, Release7['username'], Release7['password'])
+    r7_tc058(driver, ts_id, Release7['username'], Release7['password'])
+    time.sleep(5)
+    driver.quit()
 
 @pytest.mark.tags("TS012")
 def test_r7_TS012():
