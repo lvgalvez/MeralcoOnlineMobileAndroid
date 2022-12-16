@@ -19,7 +19,7 @@ class Overview(object):
     Overview_Kebab_Overview = "//android.view.View[2]/android.view.View/android.view.View[1]"
     overview_hamburger_menu = "//android.webkit.WebView[@index='0']/android.view.View[@index='0']/android.view.View[@index='0']"
     Overview_Contact_Us = "//*[1][@text = 'Contact Us']"
-    overview_bills_and_payments = "//*[1][@text = 'Bills and Payments'"
+    overview_bills_and_payments = "//*[1][@text = 'Bills and Payments']"
     Overview_Report_Outage = "//android.view.View/android.view.View[2]/android.view.View/android.view.View[1]"
     Overview_Report_Streetlight = "//android.view.View/android.view.View[2]/android.view.View/android.view.View[2]"
     Overview_Contact_Us = "//android.view.View/android.view.View[2]/android.view.View/android.view.View[12]"
@@ -27,7 +27,7 @@ class Overview(object):
     Overview_Faq = "//android.view.View/android.view.View[11]"
     Overview_Appliance_Calculator = "//android.widget.TextView[@text = 'Appliance Calculator']"
     Overview_Orange_Tag = "//android.widget.TextView[@text = 'Orange Tag']"
-
+    Overview_Bright_Ideas = "//*[1][@text = 'Bright Ideas']"
 
     def click_faq(self, driver):
         self.click_faq = driver.find_element(By.XPATH, Overview.Overview_Faq)
@@ -137,3 +137,8 @@ class Overview(object):
         self.orange_tag = driver.find_element(By.XPATH, Overview.Overview_Orange_Tag)
         self.orange_tag.click()
         time.sleep(5)
+
+    def click_bright_ideas(self, driver):
+        self.click_new_technology = driver.find_element(By.XPATH, Overview.Overview_Bright_Ideas)
+        self.click_new_technology.click()
+

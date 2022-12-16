@@ -17,6 +17,7 @@ from Pages.GoogleLoginPage import *
 from Pages.FacebookLoginPage import *
 from Pages.ProfilePage import *
 from Pages.SwitchServicesPage import Switch
+from Pages.BrightIdeasPage import Bright_Ideas
 from Utilities.Config import *
 from Utilities.TestData.TestData import *
 
@@ -1012,19 +1013,18 @@ def r7_login_utility(driver, username, password):
     time.sleep(10)
     login.click_allow(driver)
 
+def r7_tc048(driver, ts_id, username, password):
+    module = "R7"
+    overview = Overview()
+    brightIdeas = Bright_Ideas()
 
-def r7_tc053(driver, ts_id):
-    home = Home()
-    login = Login()
-    print("START")
-    driver.save_screenshot(screenshot_folder + f'{ts_id}\\{ts_id}_TC0 Step 1.png')
-    home.click_home_login(driver)
-    time.sleep(5)
-    login.set_username(driver, 'atconcernmultiple@yopmail.com')
-    login.set_password(driver, 'Meralco01')
-    login.click_login(driver)
-    time.sleep(10)
-    login.click_allow(driver)
+    r7_login_utility(driver, username, password)
+    overview.click_kebab_menu(driver)
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC052 Step 1.png')
+    overview.click_bright_ideas(driver)
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC052 Step 2.png')
+    brightIdeas.click_bright_idea(driver)
+    driver.save_screenshot(screenshot_folder + f'{module}/{ts_id}/TC052 Step 3.png')
 
 
 def r7_tc051(driver, ts_id, username, password):
